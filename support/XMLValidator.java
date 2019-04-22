@@ -113,6 +113,9 @@ public class XMLValidator implements ErrorHandler {
       Schema schema = loadSchema(schemaFile);
       Validator validator = schema.newValidator();
 
+      validator.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+      validator.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+
       validator.setErrorHandler(handler);
       validator.validate(new StreamSource(inputStream));
 
